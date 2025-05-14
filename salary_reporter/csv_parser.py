@@ -55,4 +55,8 @@ def load_employees_from_files(file_paths: list[str]) -> list[Employee]:
         employees.extend(read_employees_from_file(file_path))
     return employees
         
-
+if __name__ == "__main__":
+    file_paths = ["data_examples/data1.csv", "data_examples/data2.csv", "data_examples/data3.csv"]
+    employees = load_employees_from_files(file_paths)
+    for employee in employees:
+        print(f"ID: {employee.id}, Name: {employee.name}, Email: {employee.email}, Department: {employee.department}, Hourly Rate: {employee.hourly_rate}, Hours Worked: {employee.hours_worked}, Salary: {employee.calculate_salary()}")
