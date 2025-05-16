@@ -59,4 +59,4 @@ if __name__ == "__main__":
     file_paths = ["data_examples/data1.csv", "data_examples/data2.csv", "data_examples/data3.csv"]
     employees = load_employees_from_files(file_paths)
     for employee in employees:
-        print(f"ID: {employee.id}, Name: {employee.name}, Email: {employee.email}, Department: {employee.department}, Hourly Rate: {employee.hourly_rate}, Hours Worked: {employee.hours_worked}, Salary: {employee.calculate_salary()}")
+        print(f"{employee.id:>4} {employee.name:>15} {employee.email:>17} {employee.department:>9} {employee.hourly_rate:>4} {employee.hours_worked:>4} {employee.calculate_salary():>5}")
