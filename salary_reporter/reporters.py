@@ -23,8 +23,7 @@ class PayoutReport(Report):
                 }
             department_summary[dept_key]["employees"].append(emp)
             department_summary[dept_key]["total_hours"] += emp.hours_worked
-            if emp.payout is not None:
-                department_summary[dept_key]["total_payout"] += emp.payout
+            department_summary[dept_key]["total_payout"] += emp.calculate_salary()
         
         for dept_name in department_summary:
             department_summary[dept_name]["employees"].sort(key=lambda employee: employee.name)
