@@ -27,6 +27,8 @@ def read_employees_from_file(file_path: str) -> list[Employee]:
     try:
         with open(file_path, "r", encoding="utf-8") as file:
             lines = file.readlines()
+        if not lines:
+            return employees
         header = lines[0].strip().split(",")
         column_indices = _find_column_indices(header)
         for line_index, line in enumerate(lines[1:]):
@@ -45,8 +47,6 @@ def read_employees_from_file(file_path: str) -> list[Employee]:
                 print(f"Ошибка преобразования данных в строке {line_index}: {line.strip()}. Ошибка: {e}")
     except FileNotFoundError:
         print(f"Файл не найден: {file_path}")
-    except Exception as e:
-        print(f"Ошибка при чтении файла {file_path}: {e}")
     return employees
 
 def load_employees_from_files(file_paths: list[str]) -> list[Employee]:

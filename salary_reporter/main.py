@@ -5,12 +5,12 @@ from salary_reporter.csv_parser import load_employees_from_files
 from salary_reporter.reporters import get_report_generator
 from salary_reporter.formatters import get_output_formatter
 
-def run_application():
+def run_application(cli_args=None):
     parser = argparse.ArgumentParser(description="Генерация отчета по зарплате сотрудников")
     parser.add_argument("file_paths", nargs="+", help="Пути к файлам с данными сотрудников")
     parser.add_argument("--report", default="payout", help="Тип отчета (по умолчанию 'payout')")
     parser.add_argument("--format", default="text", help="Формат отчета (по умолчанию 'text')")
-    args = parser.parse_args()
+    args = parser.parse_args(cli_args)
     try:
         employees = load_employees_from_files(args.file_paths)
         if not employees:

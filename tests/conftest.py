@@ -1,5 +1,4 @@
 import pytest
-import os
 from salary_reporter.models import Employee
 
 @pytest.fixture
