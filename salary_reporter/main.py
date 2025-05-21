@@ -1,5 +1,8 @@
 import argparse
 import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from salary_reporter.csv_parser import load_employees_from_files
 from salary_reporter.reporters import get_report_generator
